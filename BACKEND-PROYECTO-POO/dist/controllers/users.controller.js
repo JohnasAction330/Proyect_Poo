@@ -108,6 +108,53 @@ export const updateProject = async (req, res) => {
         }
     }
 };
+export const shareProjectWithUser = async (req, res) => {
+    const userId = req.params.id;
+    const projectId = req.params.projectId;
+    const userEmail = req.body.email;
+    const user = await User.findById(userId);
+    if (user) {
+        const project = user.dashboard[0].projects.find(p => p.id === projectId);
+        project?.shareWith.push(userEmail);
+        const userToShare = await User.findOne({ email: userEmail });
+        if (userToShare) {
+            if (project) {
+                userToShare.dashboard[0].projects.push(project);
+                await userToShare.save();
+                await user.save();
+                res.json({ message: "Proyecto compartido exitosamente" });
+            }
+            else {
+                res.status(404).json({ message: "Proyecto no encontrado" });
+            }
+        }
+        else {
+            res.status(404).json({ message: "Usuario no encontrado" });
+        }
+    }
+};
+export const unshareProjectWithUser = async (req, res) => {
+    const userId = req.params.id;
+    const projectId = req.params.projectId;
+    const emailToUnshare = req.params.email;
+    const user = await User.findById(userId);
+    if (user) {
+        const project = user.dashboard[0].projects.find(p => p.id === projectId);
+        if (project) {
+            project.shareWith = project.shareWith.filter(email => email !== emailToUnshare);
+            const userToUnshare = await User.findOne({ email: emailToUnshare });
+            if (userToUnshare) {
+                const projectIndex = userToUnshare.dashboard[0].projects.findIndex(p => p.id === projectId);
+                if (projectIndex !== -1) {
+                    userToUnshare.dashboard[0].projects.splice(projectIndex, 1);
+                    await userToUnshare.save();
+                }
+            }
+            await user.save();
+            res.json({ message: "Proyecto descompartido exitosamente" });
+        }
+    }
+};
 export const getDeletedProjects = async (req, res) => {
     const deletedProjects = await DeletedProject.find();
     res.json(deletedProjects);

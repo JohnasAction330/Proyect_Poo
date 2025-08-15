@@ -8,6 +8,7 @@ const projectSchema = new mongoose.Schema({
     name: String,
     icon: String,
     isFavorite: Boolean,
+    shareWith: [String],
     isShared: Boolean,
     isDeleted: Boolean,
     isRecent: Boolean,

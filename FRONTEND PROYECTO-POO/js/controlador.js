@@ -11,6 +11,8 @@ var currentUser = null;
 var currentProjectId = null;
 var currentProject = null;
 
+let deletedTimerId = null;
+
 const getDeletedProjects = async () => {
   const requestOptionGet = {
     method : 'GET'
@@ -645,7 +647,7 @@ const renderDashboard = async () => {
     method: 'GET',
     redirect: 'follow'
    }
-   const response = await fetch('http://localhost:3000/users/' + currentUser.id + '/projects', requestOptionGet);
+   const response = await fetch('http://localhost:3000/users/' + currentUser._id + '/projects', requestOptionGet);
    if(response.ok){
     const projects = await response.json();
     currentUser.dashboard[0].projects = projects;
@@ -699,12 +701,31 @@ const renderNavbar = (currentUser) => {
             </div>
           </div>
 
-          <div onclick = "showUserProfilePremium()"class="logo">
-            <img src="${currentUser.profileImage}" alt="mario" />
+          <div class="logo" style="position:relative;">
+            <img id="navbar-profile-img" src="${currentUser.profileImage}" alt="mario" style="cursor:pointer; width:100px; border-radius:50%;" />
+            <input type="file" id="navbar-profile-input" accept="image/*" style="display:none;position:absolute;top:0;left:0;width:100%;height:100%;" />
           </div>
         </div>
       </nav>
       <div id="dashboard-section" class="contenedor"></div>`
+  setTimeout(() => {
+    const img = document.getElementById('navbar-profile-img');
+    const input = document.getElementById('navbar-profile-input');
+    if (img && input) {
+      img.onclick = () => input.click();
+      input.onchange = (e) => {
+        const file = e.target.files[0];
+        if (file) {
+          const reader = new FileReader();
+          reader.onload = function(ev) {
+            img.src = ev.target.result;
+            currentUser.profileImage = ev.target.result;
+          };
+          reader.readAsDataURL(file);
+        }
+      };
+    }
+  }, 100);
 }
 
 const showFavoriteProjects = () => {
@@ -1077,7 +1098,7 @@ const compileCode = async () =>{
       body: JSON.stringify(currentProject)
     }
 
-    await fetch('http://localhost:3000/users/'+ currentUser.id+'/projects/update/'+ currentProjectId, requestOptionPut);
+    await fetch('http://localhost:3000/users/'+ currentUser._id+'/projects/update/'+ currentProjectId, requestOptionPut);
     getUserFromBackend();
 }
 
@@ -1132,7 +1153,7 @@ const createProject = async () =>{
       body: JSON.stringify(newProject)
     }
 
-    const response = await fetch('http://localhost:3000/users/'+ currentUser.id+'/projects/create', requestOptionPost);
+    const response = await fetch('http://localhost:3000/users/'+ currentUser._id+'/projects/create', requestOptionPost);
     const newProjectFromServer = await response.json();
 
     currentUser.dashboard[0].projects.push(newProjectFromServer);
@@ -1194,9 +1215,10 @@ const deleteUser = async () =>{
     method: 'DELETE'
   }
 
-  await fetch('http://localhost:3000/users/delete/'+ userToDelete.id, requestOptionDelete);
+  await fetch('http://localhost:3000/users/delete/'+ userToDelete._id, requestOptionDelete);
   currentUser = null;
   closeUserDashboard();
+  getUserFromBackend();
 }
 
 const deleteProject =  async () =>{
@@ -1220,9 +1242,11 @@ const deleteProject =  async () =>{
   }
 
 
-  await fetch ('http://localhost:3000/users/'+ currentUser.id+'/projects/delete/'+ projectToDelete.id, requestOptionDelete);
+  await fetch ('http://localhost:3000/users/'+ currentUser._id+'/projects/delete/'+ projectToDelete.id, requestOptionDelete);
   await getDeletedProjects();
-  setTimeout(async () => {
+  
+  
+  deletedTimerId = setTimeout(async () => {
     deletedProjects = deletedProjects.filter(
       project => project.id !== projectToDelete.id
     );
@@ -1230,13 +1254,17 @@ const deleteProject =  async () =>{
     console.log("Proyecto eliminado permanentemente:", projectToDelete.name);
     renderDashboard();
   }, 15000);
-
+ 
   await getDeletedProjects();
   await renderDashboard();
   showUserStorage();
 }
 
 const restoreProject = async (projectIdDeleted) =>{
+  if(deletedTimerId){
+    clearTimeout(deletedTimerId);
+    deletedTimerId = null;
+  }
   const projectToRestore = deletedProjects.find(p => p.id === projectIdDeleted);
   if (projectToRestore){
     projectToRestore.isDeleted = false;
@@ -1247,8 +1275,8 @@ const restoreProject = async (projectIdDeleted) =>{
       },
       body: JSON.stringify(projectToRestore)
     }
-    await fetch('http://localhost:3000/users/'+ currentUser.id+'/projects/restore/'+ projectToRestore.id, requestOptionPost);
-
+    await fetch('http://localhost:3000/users/'+ currentUser._id+'/projects/restore/'+ projectToRestore.id, requestOptionPost);
+    getUserFromBackend();
     currentUser.dashboard[0].projects.push(projectToRestore);
     deletedProjects = deletedProjects.filter(p => p.id !== projectIdDeleted);
 
@@ -1275,7 +1303,7 @@ const desmarkFavorite = async () =>{
       body: JSON.stringify(currentProject)
     }
 
-    await fetch('http://localhost:3000/users/'+ currentUser.id+'/projects/update/'+ currentProjectId, requestOptionPut);
+    await fetch('http://localhost:3000/users/'+ currentUser._id+'/projects/update/'+ currentProjectId, requestOptionPut);
     getUserFromBackend();
     verifyFavoriteProject();
 }
@@ -1295,7 +1323,7 @@ const markFavorite = async () =>{
     body: JSON.stringify(currentProject)
   }
 
-  await fetch('http://localhost:3000/users/'+ currentUser.id+'/projects/update/'+ currentProjectId, requestOptionPut);
+  await fetch('http://localhost:3000/users/'+ currentUser._id+'/projects/update/'+ currentProjectId, requestOptionPut);
   getUserFromBackend();
 
   }else{
@@ -1331,7 +1359,7 @@ const markShared = async () =>{
           body: JSON.stringify(currentProject)
         }
 
-        await fetch('http://localhost:3000/users/'+ currentUser.id+'/projects/update/'+ currentProjectId, requestOptionPut);
+        await fetch('http://localhost:3000/users/'+ currentUser._id+'/projects/update/'+ currentProjectId, requestOptionPut);
         getUserFromBackend();
 
     }else{
@@ -1360,7 +1388,7 @@ const desmarkRecent = async (projectToUnmark) =>{
       body: JSON.stringify(projectToChange)
     }
 
-    const response = await fetch('http://localhost:3000/users/'+ currentUser.id+'/projects/update/'+ projectToChange.id, requestOptionPut);
+    const response = await fetch('http://localhost:3000/users/'+ currentUser._id+'/projects/update/'+ projectToChange.id, requestOptionPut);
     const updatedProject = await response.json();
     
     const projectIndex = currentUser.dashboard[0].projects.findIndex(p => p.id === projectToChange.id);
@@ -1382,7 +1410,7 @@ const markRecent = async() =>{
           body: JSON.stringify(currentProject)
         }
 
-        const response = await fetch('http://localhost:3000/users/'+ currentUser.id+'/projects/update/'+ currentProjectId, requestOptionPut);
+        const response = await fetch('http://localhost:3000/users/'+ currentUser._id+'/projects/update/'+ currentProjectId, requestOptionPut);
         const recentProject = await response.json();
         setTimeout(() => {
             if(recentProject && recentProject.isRecent) {
@@ -1528,7 +1556,7 @@ const changePlan = async (planID) => {
     method: 'PUT',
   }
 
-  const response = await fetch('http://localhost:3000/users/'+currentUser.id+'/plan/'+ planID+'/update', requestOptionPut);
+  const response = await fetch('http://localhost:3000/users/'+currentUser._id+'/plan/'+ planID+'/update', requestOptionPut);
   if(response.ok){
     const updatedUser = await response.json();
     currentUser = updatedUser;

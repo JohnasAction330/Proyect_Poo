@@ -14,6 +14,7 @@ declare const _default: mongoose.Model<{
                 name?: string | null | undefined;
                 content?: string | null | undefined;
             }>;
+            shareWith: string[];
             id?: string | null | undefined;
             name?: string | null | undefined;
             icon?: string | null | undefined;
@@ -33,6 +34,7 @@ declare const _default: mongoose.Model<{
                 name?: string | null | undefined;
                 content?: string | null | undefined;
             }>;
+            shareWith: string[];
             id?: string | null | undefined;
             name?: string | null | undefined;
             icon?: string | null | undefined;
@@ -52,6 +54,7 @@ declare const _default: mongoose.Model<{
                 name?: string | null | undefined;
                 content?: string | null | undefined;
             }>;
+            shareWith: string[];
             id?: string | null | undefined;
             name?: string | null | undefined;
             icon?: string | null | undefined;
@@ -93,6 +96,7 @@ declare const _default: mongoose.Model<{
                 name?: string | null | undefined;
                 content?: string | null | undefined;
             }>;
+            shareWith: string[];
             id?: string | null | undefined;
             name?: string | null | undefined;
             icon?: string | null | undefined;
@@ -112,6 +116,7 @@ declare const _default: mongoose.Model<{
                 name?: string | null | undefined;
                 content?: string | null | undefined;
             }>;
+            shareWith: string[];
             id?: string | null | undefined;
             name?: string | null | undefined;
             icon?: string | null | undefined;
@@ -131,6 +136,7 @@ declare const _default: mongoose.Model<{
                 name?: string | null | undefined;
                 content?: string | null | undefined;
             }>;
+            shareWith: string[];
             id?: string | null | undefined;
             name?: string | null | undefined;
             icon?: string | null | undefined;
@@ -172,6 +178,7 @@ declare const _default: mongoose.Model<{
                 name?: string | null | undefined;
                 content?: string | null | undefined;
             }>;
+            shareWith: string[];
             id?: string | null | undefined;
             name?: string | null | undefined;
             icon?: string | null | undefined;
@@ -191,6 +198,7 @@ declare const _default: mongoose.Model<{
                 name?: string | null | undefined;
                 content?: string | null | undefined;
             }>;
+            shareWith: string[];
             id?: string | null | undefined;
             name?: string | null | undefined;
             icon?: string | null | undefined;
@@ -210,6 +218,7 @@ declare const _default: mongoose.Model<{
                 name?: string | null | undefined;
                 content?: string | null | undefined;
             }>;
+            shareWith: string[];
             id?: string | null | undefined;
             name?: string | null | undefined;
             icon?: string | null | undefined;
@@ -259,6 +268,7 @@ declare const _default: mongoose.Model<{
                 name?: string | null | undefined;
                 content?: string | null | undefined;
             }>;
+            shareWith: string[];
             id?: string | null | undefined;
             name?: string | null | undefined;
             icon?: string | null | undefined;
@@ -278,6 +288,7 @@ declare const _default: mongoose.Model<{
                 name?: string | null | undefined;
                 content?: string | null | undefined;
             }>;
+            shareWith: string[];
             id?: string | null | undefined;
             name?: string | null | undefined;
             icon?: string | null | undefined;
@@ -297,6 +308,7 @@ declare const _default: mongoose.Model<{
                 name?: string | null | undefined;
                 content?: string | null | undefined;
             }>;
+            shareWith: string[];
             id?: string | null | undefined;
             name?: string | null | undefined;
             icon?: string | null | undefined;
@@ -338,6 +350,7 @@ declare const _default: mongoose.Model<{
                 name?: string | null | undefined;
                 content?: string | null | undefined;
             }>;
+            shareWith: string[];
             id?: string | null | undefined;
             name?: string | null | undefined;
             icon?: string | null | undefined;
@@ -357,6 +370,7 @@ declare const _default: mongoose.Model<{
                 name?: string | null | undefined;
                 content?: string | null | undefined;
             }>;
+            shareWith: string[];
             id?: string | null | undefined;
             name?: string | null | undefined;
             icon?: string | null | undefined;
@@ -376,6 +390,7 @@ declare const _default: mongoose.Model<{
                 name?: string | null | undefined;
                 content?: string | null | undefined;
             }>;
+            shareWith: string[];
             id?: string | null | undefined;
             name?: string | null | undefined;
             icon?: string | null | undefined;
@@ -417,6 +432,7 @@ declare const _default: mongoose.Model<{
                 name?: string | null | undefined;
                 content?: string | null | undefined;
             }>;
+            shareWith: string[];
             id?: string | null | undefined;
             name?: string | null | undefined;
             icon?: string | null | undefined;
@@ -436,6 +452,7 @@ declare const _default: mongoose.Model<{
                 name?: string | null | undefined;
                 content?: string | null | undefined;
             }>;
+            shareWith: string[];
             id?: string | null | undefined;
             name?: string | null | undefined;
             icon?: string | null | undefined;
@@ -455,6 +472,7 @@ declare const _default: mongoose.Model<{
                 name?: string | null | undefined;
                 content?: string | null | undefined;
             }>;
+            shareWith: string[];
             id?: string | null | undefined;
             name?: string | null | undefined;
             icon?: string | null | undefined;
@@ -504,6 +522,7 @@ declare const _default: mongoose.Model<{
                 name?: string | null | undefined;
                 content?: string | null | undefined;
             }>;
+            shareWith: string[];
             id?: string | null | undefined;
             name?: string | null | undefined;
             icon?: string | null | undefined;
@@ -523,6 +542,7 @@ declare const _default: mongoose.Model<{
                 name?: string | null | undefined;
                 content?: string | null | undefined;
             }>;
+            shareWith: string[];
             id?: string | null | undefined;
             name?: string | null | undefined;
             icon?: string | null | undefined;
@@ -542,6 +562,7 @@ declare const _default: mongoose.Model<{
                 name?: string | null | undefined;
                 content?: string | null | undefined;
             }>;
+            shareWith: string[];
             id?: string | null | undefined;
             name?: string | null | undefined;
             icon?: string | null | undefined;
@@ -583,6 +604,7 @@ declare const _default: mongoose.Model<{
                 name?: string | null | undefined;
                 content?: string | null | undefined;
             }>;
+            shareWith: string[];
             id?: string | null | undefined;
             name?: string | null | undefined;
             icon?: string | null | undefined;
@@ -602,6 +624,7 @@ declare const _default: mongoose.Model<{
                 name?: string | null | undefined;
                 content?: string | null | undefined;
             }>;
+            shareWith: string[];
             id?: string | null | undefined;
             name?: string | null | undefined;
             icon?: string | null | undefined;
@@ -621,6 +644,7 @@ declare const _default: mongoose.Model<{
                 name?: string | null | undefined;
                 content?: string | null | undefined;
             }>;
+            shareWith: string[];
             id?: string | null | undefined;
             name?: string | null | undefined;
             icon?: string | null | undefined;
@@ -662,6 +686,7 @@ declare const _default: mongoose.Model<{
                 name?: string | null | undefined;
                 content?: string | null | undefined;
             }>;
+            shareWith: string[];
             id?: string | null | undefined;
             name?: string | null | undefined;
             icon?: string | null | undefined;
@@ -681,6 +706,7 @@ declare const _default: mongoose.Model<{
                 name?: string | null | undefined;
                 content?: string | null | undefined;
             }>;
+            shareWith: string[];
             id?: string | null | undefined;
             name?: string | null | undefined;
             icon?: string | null | undefined;
@@ -700,6 +726,7 @@ declare const _default: mongoose.Model<{
                 name?: string | null | undefined;
                 content?: string | null | undefined;
             }>;
+            shareWith: string[];
             id?: string | null | undefined;
             name?: string | null | undefined;
             icon?: string | null | undefined;
@@ -753,6 +780,7 @@ declare const _default: mongoose.Model<{
                 name?: string | null | undefined;
                 content?: string | null | undefined;
             }>;
+            shareWith: string[];
             id?: string | null | undefined;
             name?: string | null | undefined;
             icon?: string | null | undefined;
@@ -772,6 +800,7 @@ declare const _default: mongoose.Model<{
                 name?: string | null | undefined;
                 content?: string | null | undefined;
             }>;
+            shareWith: string[];
             id?: string | null | undefined;
             name?: string | null | undefined;
             icon?: string | null | undefined;
@@ -791,6 +820,7 @@ declare const _default: mongoose.Model<{
                 name?: string | null | undefined;
                 content?: string | null | undefined;
             }>;
+            shareWith: string[];
             id?: string | null | undefined;
             name?: string | null | undefined;
             icon?: string | null | undefined;
@@ -832,6 +862,7 @@ declare const _default: mongoose.Model<{
                 name?: string | null | undefined;
                 content?: string | null | undefined;
             }>;
+            shareWith: string[];
             id?: string | null | undefined;
             name?: string | null | undefined;
             icon?: string | null | undefined;
@@ -851,6 +882,7 @@ declare const _default: mongoose.Model<{
                 name?: string | null | undefined;
                 content?: string | null | undefined;
             }>;
+            shareWith: string[];
             id?: string | null | undefined;
             name?: string | null | undefined;
             icon?: string | null | undefined;
@@ -870,6 +902,7 @@ declare const _default: mongoose.Model<{
                 name?: string | null | undefined;
                 content?: string | null | undefined;
             }>;
+            shareWith: string[];
             id?: string | null | undefined;
             name?: string | null | undefined;
             icon?: string | null | undefined;
@@ -911,6 +944,7 @@ declare const _default: mongoose.Model<{
                 name?: string | null | undefined;
                 content?: string | null | undefined;
             }>;
+            shareWith: string[];
             id?: string | null | undefined;
             name?: string | null | undefined;
             icon?: string | null | undefined;
@@ -930,6 +964,7 @@ declare const _default: mongoose.Model<{
                 name?: string | null | undefined;
                 content?: string | null | undefined;
             }>;
+            shareWith: string[];
             id?: string | null | undefined;
             name?: string | null | undefined;
             icon?: string | null | undefined;
@@ -949,6 +984,7 @@ declare const _default: mongoose.Model<{
                 name?: string | null | undefined;
                 content?: string | null | undefined;
             }>;
+            shareWith: string[];
             id?: string | null | undefined;
             name?: string | null | undefined;
             icon?: string | null | undefined;
@@ -998,6 +1034,7 @@ declare const _default: mongoose.Model<{
                 name?: string | null | undefined;
                 content?: string | null | undefined;
             }>;
+            shareWith: string[];
             id?: string | null | undefined;
             name?: string | null | undefined;
             icon?: string | null | undefined;
@@ -1017,6 +1054,7 @@ declare const _default: mongoose.Model<{
                 name?: string | null | undefined;
                 content?: string | null | undefined;
             }>;
+            shareWith: string[];
             id?: string | null | undefined;
             name?: string | null | undefined;
             icon?: string | null | undefined;
@@ -1036,6 +1074,7 @@ declare const _default: mongoose.Model<{
                 name?: string | null | undefined;
                 content?: string | null | undefined;
             }>;
+            shareWith: string[];
             id?: string | null | undefined;
             name?: string | null | undefined;
             icon?: string | null | undefined;
@@ -1077,6 +1116,7 @@ declare const _default: mongoose.Model<{
                 name?: string | null | undefined;
                 content?: string | null | undefined;
             }>;
+            shareWith: string[];
             id?: string | null | undefined;
             name?: string | null | undefined;
             icon?: string | null | undefined;
@@ -1096,6 +1136,7 @@ declare const _default: mongoose.Model<{
                 name?: string | null | undefined;
                 content?: string | null | undefined;
             }>;
+            shareWith: string[];
             id?: string | null | undefined;
             name?: string | null | undefined;
             icon?: string | null | undefined;
@@ -1115,6 +1156,7 @@ declare const _default: mongoose.Model<{
                 name?: string | null | undefined;
                 content?: string | null | undefined;
             }>;
+            shareWith: string[];
             id?: string | null | undefined;
             name?: string | null | undefined;
             icon?: string | null | undefined;
@@ -1156,6 +1198,7 @@ declare const _default: mongoose.Model<{
                 name?: string | null | undefined;
                 content?: string | null | undefined;
             }>;
+            shareWith: string[];
             id?: string | null | undefined;
             name?: string | null | undefined;
             icon?: string | null | undefined;
@@ -1175,6 +1218,7 @@ declare const _default: mongoose.Model<{
                 name?: string | null | undefined;
                 content?: string | null | undefined;
             }>;
+            shareWith: string[];
             id?: string | null | undefined;
             name?: string | null | undefined;
             icon?: string | null | undefined;
@@ -1194,6 +1238,7 @@ declare const _default: mongoose.Model<{
                 name?: string | null | undefined;
                 content?: string | null | undefined;
             }>;
+            shareWith: string[];
             id?: string | null | undefined;
             name?: string | null | undefined;
             icon?: string | null | undefined;
@@ -1243,6 +1288,7 @@ declare const _default: mongoose.Model<{
                 name?: string | null | undefined;
                 content?: string | null | undefined;
             }>;
+            shareWith: string[];
             id?: string | null | undefined;
             name?: string | null | undefined;
             icon?: string | null | undefined;
@@ -1262,6 +1308,7 @@ declare const _default: mongoose.Model<{
                 name?: string | null | undefined;
                 content?: string | null | undefined;
             }>;
+            shareWith: string[];
             id?: string | null | undefined;
             name?: string | null | undefined;
             icon?: string | null | undefined;
@@ -1281,6 +1328,7 @@ declare const _default: mongoose.Model<{
                 name?: string | null | undefined;
                 content?: string | null | undefined;
             }>;
+            shareWith: string[];
             id?: string | null | undefined;
             name?: string | null | undefined;
             icon?: string | null | undefined;
@@ -1322,6 +1370,7 @@ declare const _default: mongoose.Model<{
                 name?: string | null | undefined;
                 content?: string | null | undefined;
             }>;
+            shareWith: string[];
             id?: string | null | undefined;
             name?: string | null | undefined;
             icon?: string | null | undefined;
@@ -1341,6 +1390,7 @@ declare const _default: mongoose.Model<{
                 name?: string | null | undefined;
                 content?: string | null | undefined;
             }>;
+            shareWith: string[];
             id?: string | null | undefined;
             name?: string | null | undefined;
             icon?: string | null | undefined;
@@ -1360,6 +1410,7 @@ declare const _default: mongoose.Model<{
                 name?: string | null | undefined;
                 content?: string | null | undefined;
             }>;
+            shareWith: string[];
             id?: string | null | undefined;
             name?: string | null | undefined;
             icon?: string | null | undefined;
@@ -1401,6 +1452,7 @@ declare const _default: mongoose.Model<{
                 name?: string | null | undefined;
                 content?: string | null | undefined;
             }>;
+            shareWith: string[];
             id?: string | null | undefined;
             name?: string | null | undefined;
             icon?: string | null | undefined;
@@ -1420,6 +1472,7 @@ declare const _default: mongoose.Model<{
                 name?: string | null | undefined;
                 content?: string | null | undefined;
             }>;
+            shareWith: string[];
             id?: string | null | undefined;
             name?: string | null | undefined;
             icon?: string | null | undefined;
@@ -1439,6 +1492,7 @@ declare const _default: mongoose.Model<{
                 name?: string | null | undefined;
                 content?: string | null | undefined;
             }>;
+            shareWith: string[];
             id?: string | null | undefined;
             name?: string | null | undefined;
             icon?: string | null | undefined;

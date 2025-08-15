@@ -20,6 +20,7 @@ export interface Project {
     name: string;
     icon: string;
     isFavorite: boolean;
+    shareWith : Array<string>;
     isShared: boolean;
     isDeleted: boolean;
     isRecent: boolean;

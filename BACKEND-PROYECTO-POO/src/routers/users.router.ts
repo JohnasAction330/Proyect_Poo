@@ -1,11 +1,11 @@
 import {Router} from 'express';
-import {deleteUser, getUsers, getUsersPerId, getUserPlan, getDeletedProjects} from "../controllers/users.controller.js";
+import {deleteUser, getUsers, getUsersPerId, getUserPlan, getDeletedProjects, unshareProjectWithUser} from "../controllers/users.controller.js";
 import {getUserCategories} from "../controllers/users.controller.js";
 import {getProjectById} from "../controllers/users.controller.js";
 import { getUserWithoutDashboard } from '../controllers/users.controller.js';
 import { getProjectsByUserID } from '../controllers/users.controller.js';
 import { updateProject } from '../controllers/users.controller.js';
-import { deleteProjectFromUser, deleteProjectFromBin , createProject, restoreProject, updateUserPlan} from '../controllers/users.controller.js';
+import { deleteProjectFromUser, deleteProjectFromBin, shareProjectWithUser , createProject, restoreProject, updateUserPlan} from '../controllers/users.controller.js';
 
 const router = Router();
 
@@ -18,6 +18,8 @@ router.get('/:id/projects/:projectId', getProjectById);
 router.get ('/:id/plan', getUserPlan);
 router.put('/:id/plan/:planId/update', updateUserPlan);
 router.put('/:id/projects/update/:projectId', updateProject);
+router.put('/:id/projects/:projectId/shareWith/:email', shareProjectWithUser);
+router.put('/:id/projects/:projectId/unshareWith/:email', unshareProjectWithUser);
 router.get('/:id/projects', getProjectsByUserID);
 router.delete('/:id/projects/delete/:projectId', deleteProjectFromUser);
 router.delete('/projects/:projectId/delete', deleteProjectFromBin);
