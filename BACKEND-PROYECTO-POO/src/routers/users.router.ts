@@ -1,0 +1,28 @@
+import {Router} from 'express';
+import {deleteUser, getUsers, getUsersPerId, getUserPlan, getDeletedProjects} from "../controllers/users.controller.js";
+import {getUserCategories} from "../controllers/users.controller.js";
+import {getProjectById} from "../controllers/users.controller.js";
+import { getUserWithoutDashboard } from '../controllers/users.controller.js';
+import { getProjectsByUserID } from '../controllers/users.controller.js';
+import { updateProject } from '../controllers/users.controller.js';
+import { deleteProjectFromUser, deleteProjectFromBin , createProject, restoreProject, updateUserPlan} from '../controllers/users.controller.js';
+
+const router = Router();
+
+router.get('/', getUsers);
+router.get('/projects/deleted', getDeletedProjects);
+router.get('/without-dashboard/:id', getUserWithoutDashboard);
+router.get('/:id', getUsersPerId);
+router.get('/:id/categories', getUserCategories);
+router.get('/:id/projects/:projectId', getProjectById);
+router.get ('/:id/plan', getUserPlan);
+router.put('/:id/plan/:planId/update', updateUserPlan);
+router.put('/:id/projects/update/:projectId', updateProject);
+router.get('/:id/projects', getProjectsByUserID);
+router.delete('/:id/projects/delete/:projectId', deleteProjectFromUser);
+router.delete('/projects/:projectId/delete', deleteProjectFromBin);
+router.delete('/delete/:id', deleteUser);
+router.post('/:id/projects/create', createProject);
+router.post('/:id/projects/restore/:projectId', restoreProject);
+export default router;
+ 

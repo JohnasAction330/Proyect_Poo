@@ -1,0 +1,36 @@
+{
+  "name": "backend-proyecto-poo",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "compilar": "tsc --watch",
+    "ejecutar": "nodemon dist/index.js --watch",
+    "insertData" : "nodemon dist/scripts/seedData.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@types/express": "^5.0.3",
+    "@types/node": "^24.2.1",
+    "@types/uuid": "^10.0.0",
+    "dotenv": "^17.2.1",
+    "express": "^5.1.0",
+    "install": "^0.13.0",
+    "nodemon": "^3.1.10",
+    "npm": "^11.5.2",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.2"
+  },
+  "dependencies": {
+    "@tailwindcss/vite": "^4.1.12",
+    "@types/cors": "^2.8.19",
+    "cors": "^2.8.5",
+    "mongoose": "^8.17.1",
+    "tailwindcss": "^4.1.12",
+    "uuid": "^11.1.0"
+  }
+}
