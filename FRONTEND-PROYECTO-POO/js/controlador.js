@@ -10,7 +10,6 @@ let htmlEditor, cssEditor, jsEditor;
 var currentUser = null;
 var currentProjectId = null;
 var currentProject = null;
-
 let deletedTimerId = null;
 
 const getDeletedProjects = async () => {
@@ -701,14 +700,14 @@ const renderNavbar = (currentUser) => {
             </div>
           </div>
 
-          <div class="logo" style="position:relative;">
-            <img id="navbar-profile-img" src="${currentUser.profileImage}" alt="mario" style="cursor:pointer; width:100px; border-radius:50%;" />
-            <input type="file" id="navbar-profile-input" accept="image/*" style="display:none;position:absolute;top:0;left:0;width:100%;height:100%;" />
+          <div class="logo">
+            <img id="navbar-profile-img" src="${currentUser.profileImage}" alt="mario" />
+            <input id="navbar-profile-input" type="file" accept="image/*" style="display: none;" />
           </div>
         </div>
       </nav>
       <div id="dashboard-section" class="contenedor"></div>`
-  setTimeout(() => {
+    setTimeout(() => {
     const img = document.getElementById('navbar-profile-img');
     const input = document.getElementById('navbar-profile-input');
     if (img && input) {
@@ -997,21 +996,6 @@ const closeFormRegister = () => {
     storageSection.classList.add("hide");
     loginSection.classList.add("hide");
 }
-const showUserProfilePremium = () => {
-    const landingPage = document.getElementById("landing-page");
-    const storageSection =  document.getElementById("storage");
-    const loginSection = document.getElementById("login");
-    const plansSection = document.getElementById("plans");
-    const registerSection = document.getElementById("register-section");
-    const paymentSection = document.getElementById("payment");
-
-    plansSection.classList.add("hide");
-    landingPage.classList.add("hide");
-    registerSection.classList.add("hide");
-    paymentSection.classList.add("hide");
-    storageSection.classList.add("hide");
-    loginSection.classList.add("hide");
-}
 
 const showUserStorage = async () =>{
     const storageSection = document.getElementById("storage");
@@ -1129,6 +1113,7 @@ const createProject = async () =>{
       isShared: false,
       isDeleted: false,
       isRecent: false,
+      shareWith : [],
       files : [
         {
           name: "index.html",
@@ -1161,54 +1146,6 @@ const createProject = async () =>{
     await renderDashboard(currentUser);
 }
 
-// const createUser = () =>{
-//   const newUser = {
-//     id: uuid.v4(),
-//     email: document.getElementById("register-mail").value,
-//     password: document.getElementById("register-password").value,
-//     name: document.getElementById("register-name").value,
-//     phone: document.getElementById("register-phone").value,
-//     profileImage: "../img/placeholder-user.jpg",
-//     subscription: plansData[0].id,
-//     dashboard: [
-//       {
-//         projects: [],
-//         storage: [
-//           {
-//             limit: 10,
-//             used: 0
-//           }
-//         ],
-//         categories: [
-//           {
-//             name: "Mis archivos",
-//             icon: "fa-solid fa-laptop",
-//           },
-//           {
-//             name: "Favoritos",
-//             icon: "fa-solid fa-star",
-//           },
-//           {
-//             name: "Compartidos",
-//             icon: "fa-solid fa-people-group",
-
-//           },
-//           {
-//             name: "Recientes",
-//             icon: "fa-solid fa-clock",
-
-//           },
-//           {
-//             name: "Papelera",
-//             icon: "fa-solid fa-trash-can",
-//           }
-//         ]
-//       }
-//     ]
-//   };
-//   usersData.push(newUser);
-// }
-
 const deleteUser = async () =>{
   const userToDelete = currentUser;
   const requestOptionDelete = {
@@ -1226,6 +1163,7 @@ const deleteProject =  async () =>{
   const projectToDelete = currentProject;
   projectToDelete.isDeleted =true;
   projectToDelete.isFavorite = false;
+  projectToDelete.shareWith= [],
   projectToDelete.isShared = false;
   projectToDelete.isRecent = false;
   projectToDelete.isSave = false;
@@ -1333,6 +1271,7 @@ const markFavorite = async () =>{
 
 const desmarkShared = async () =>{
     currentProject.isShared =false;
+    const emailToUnshare = currentProject.shareWith[0];
     const requestOptionPut = {
       method: 'PUT',
       headers: {
@@ -1340,8 +1279,11 @@ const desmarkShared = async () =>{
       },
       body: JSON.stringify(currentProject)
     }
-
-    await fetch('http://localhost:3000/users/'+ currentUser.id+'/projects/update/'+ currentProjectId, requestOptionPut);
+    const requestOptionPut2 ={
+      method : 'PUT',
+    }
+    await fetch('http://localhost:3000/users/'+ currentUser._id+'/projects/'+ currentProjectId+'/unshareWith/'+ emailToUnshare, requestOptionPut2);
+    await fetch('http://localhost:3000/users/'+ currentUser._id+'/projects/update/'+ currentProjectId, requestOptionPut);
     getUserFromBackend();
     verifySharedProject();
 }
@@ -1349,6 +1291,8 @@ const desmarkShared = async () =>{
 const markShared = async () =>{
     if(!currentProject.isShared){
         currentProject.isShared = true;
+        const inputShare = document.getElementById("project-share-input");
+        const email = inputShare.value;
         const iconShared = document.getElementById("sharedSpace");
         iconShared.style.color = "#1967d4ff";
         const requestOptionPut = {
@@ -1358,8 +1302,16 @@ const markShared = async () =>{
           },
           body: JSON.stringify(currentProject)
         }
+        const requestOptionPut2 ={
+          method :'PUT',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ email })
+        }
 
         await fetch('http://localhost:3000/users/'+ currentUser._id+'/projects/update/'+ currentProjectId, requestOptionPut);
+        await fetch('http://localhost:3000/users/'+ currentUser._id+'/projects/'+ currentProjectId+'/shareWith/'+ email, requestOptionPut2);
         getUserFromBackend();
 
     }else{
@@ -1526,6 +1478,25 @@ function showModalRestore(){
     const overlay = document.getElementById("overlay2");
     overlay.classList.remove("hide");
 }
+
+function showModalShareProject(){
+  if(!currentProject.isShared){
+      const modalShareProject = document.getElementById("popup-modal-project");
+      modalShareProject.classList.remove("hidden");
+      const overlay = document.getElementById("overlay2");
+      overlay.classList.remove("hide");
+  }else{
+    desmarkShared();
+  }
+}
+
+function closeModalShareProject(){
+    const modalShareProject = document.getElementById("popup-modal-project");
+    modalShareProject.classList.add("hidden");
+    const overlay = document.getElementById("overlay2");
+    overlay.classList.add("hide");
+}
+
 const  closeModalRestore = async ()=>{
     const modalRestore = document.getElementById("popup-modal-restore");
     modalRestore.classList.add("hidden");
@@ -1565,7 +1536,6 @@ const changePlan = async (planID) => {
   await renderDashboard();
   showUserStorage();
 }
-
 
 
 const verifyUser = () =>{

@@ -21,6 +21,26 @@
   </head>
   <body>
     
+
+    <div id = "popup-modal-project" class="fixed inset-0 flex items-center z-50 justify-center bg-black/30 hidden">
+    <div class="bg-white rounded-2xl shadow-lg w-80 p-6">
+ 
+    <h2 class="text-xl font-medium mb-4">Compartir proyecto con:</h2>
+    
+
+    <input
+      id="project-share-input"
+      type="text"
+      placeholder="Correo electrónico" 
+      class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+    />
+
+    <div class="flex justify-end gap-4 mt-6">
+      <button onclick="closeModalShareProject()" class="text-blue-600 hover:underline">Cancelar</button>
+      <button onclick="markShared(), closeModalShareProject()" class="text-blue-600 font-medium hover:underline">Compartir</button>
+    </div>
+  </div>
+    </div>
     <div id="popup-modal" tabindex="-1" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
     <div class="absolute top-15 right-185 p-4 w-full max-w-md max-h-full">
         <div class="relative bg-white rounded-lg shadow-sm dark:bg-gray-700">
@@ -201,7 +221,219 @@
         </section>
       </div>
     </section>
+<!-- 
+    <section id = "profile-premium" class="hide" style = " width:100vw; height: 100vh;">
+            <div id = "barra-cafe">
+                  <div id="barra-superior">
+                      <i  class="fa-solid fa-left-long"></i>
+                      <h2>SU PERFIL</h2>
+                  </div>
+            </div>
+            <nav id="seleccion-perfil">
+                <p id="pfl-normal">Perfiles de StyleScript</p>
+                 <p id="pfl-premium">Perfil Premium</p>
+             </nav>
+
+            <div id="img-centrada">
+                <div style="text-align: center; display: flex; flex-direction: column; gap: 10px;">
+                    <img id="img-perfil" src="img/prueba1.jpg">
+                    <i  id="cambiar-perfil" class="fa-regular fa-pen-to-square"></i>
+                </div>
+                <p id="editar-img">Editar imagen</p>
+             </div>
+            <section id="formulario-premium">
+                <div class="premium-orden">
+                    <label class="label-premium"> Numero de Tarjeta</label>
+                    <input  id="tarjeta" type="text">
+                </div>
+                <div class="premium-orden">
+                    <label class="label-premium"> Fecha de Nacimiento</label>
+                    <div id="fecha-premium">
+                        <input class="input-nacimiento"  type="text"> <div class="pleca-premium">/</div>
+                        <input class="input-nacimiento"  type="text"><div class="pleca-premium">/</div>
+                        <input class="input-nacimiento"  type="text">
+                    </div>
+                </div>
+                <div class="premium-orden" id="cvv">
+                    <label class="label-premium">CVV</label>
+                    <input  id="input-cvv" type="text">
+                </div>
+                <div id="guardar-premium" >
+                  <button id="btn-premium" type="button">Guardar</button>
+                </div>
+            </section>
+    </section>
+
+    <section id ="profile-normal" class="hide" style = "width:100vw; height: 100vh;">
+          <div id = "barra-cafe2">
+                  <div id="barra-superior2">
+                      <i  class="fa-solid fa-left-long"></i>
+                      <h2>SU PERFIL</h2>
+                  </div>
+          </div>
+         <nav id="seleccion-perfil">
+            <p id="perfil-normal">Perfiles de StyleScript</p>
+            <p id="perfil-premium">Perfil Premium</p>
+         </nav>
+
+         <div id="img-centrada">
+            <div>
+                <img id="img-perfil" src="img/prueba1.jpg">
+                <i  id="cambiar-perfil" class="fa-regular fa-pen-to-square"></i>
+            </div>
+            <p id="editar-img">Editar imagen</p>
+        </div>
+        <div id="formulario-perfil-normal-contenido" >
+          <section id="formulario-normal">
+              <div class="espacio-info1">
+                  <label id="nombre-completo">Nombre Completo</label>
+                  <input id="profile-fullname" class="tamaño-input" type="text">
+              </div>
+              <div class="espacio-info2">
+                  <label>Telefono</label>
+                  <input id="profile-phone" class="tamaño-input" type="text">
+              </div>
+              <div class="espacio-info1">
+                  <label id="email">Email</label>
+                  <input id="profile-email" class="tamaño-input" type="text">
+              </div>
+              <div class="espacio-info2">
+                  <label>País</label>
+                  <input id="profile-country" class="tamaño-input" type="text">
+              </div>
+              <div class="espacio-info1">
+                  <label id="fecha-nacimiento">Fecha de Nacimiento</label>
+                  <div id="fecha-orden">
+                      <input id="profile-birth-day" class="fecha-input" type="text"> <div class="pleca">/</div>
+                      <input id="profile-birth-month" class="fecha-input" type="text"><div class="pleca">/</div>
+                      <input id="profile-birth-year" class="fecha-input" type="text"> 
+                  </div>
+              </div>
+              <div class="espacio-info2">
+                  <p>Los datos ingresados en este sitio son <br> confidenciales y seran utilizados unicamente <br>con fines de autenticacion </p>
+              </div>
+          </section>
+          <div id="botones-normal">
+              <button id="btn-cerrar" class="btn" type="button">Cerrar Sesión</button>
+              <button id="btn-guardar" class="btn" type="button">Guardar</button>
+          </div>
+        </div>
+    </section>
+     -->
     <section id ="storage" class="hide" style="margin: 0; background-color: gray; width: 100vw; height: 100vh;">
+      <!-- <nav>
+        <div class="barras">
+          <div class="stylescrypt">
+            <div class="contStyle"><i class="fa-solid fa-code"></i></div>
+            StyleScrypt
+          </div>
+
+          <div>
+            <div class="search-container">
+              <i class="fa-solid fa-magnifying-glass"></i>
+              <input type="text" placeholder="Buscar proyecto" />
+            </div>
+          </div>
+
+          <div class="logo">
+            <img src="img/mario.jpg" alt="mario" />
+          </div>
+        </div>
+      </nav> -->
+
+      <!-- <div id = "dashboard-section" class="contenedor"> -->
+        <!-- <aside>
+          <nav>
+            <div class="barral">
+              <div
+                class="mt-5 bg-yellow-500 mr-23 h-10 rounded-full text-center flex items-center justify-center"
+              >
+                <span><i class="fa-solid fa-plus"></i> Nuevo</span>
+              </div>
+              <div class="mt-5">
+                <i style="color: black" class="fa-solid fa-laptop"></i> Mis
+                archivos
+              </div>
+              <div class="mt-5">
+                <i style="color: black" class="fa-solid fa-star"></i> Favoritos
+              </div>
+              <div class="mt-3">
+                <i style="color: black" class="fa-solid fa-people-group"></i>
+                Compartidos
+              </div>
+              <div class="mt-3">
+                <i style="color: black" class="fa-solid fa-clock"></i> Recientes
+              </div>
+              <div class="mt-3">
+                <i style="color: black" class="fa-solid fa-trash-can"></i>
+                Papelera
+              </div>
+              <hr class="mt-5" style="border: solid black 1px" />
+              <div class="mt-3">
+                <i style="color: black" class="fa-solid fa-cloud"></i>
+                Almacenamiento
+                <div
+                  style="
+                    color: darkgrey;
+                    font-size: 13px;
+                    text-align: center;
+                    margin-right: 30px;
+                  "
+                >
+                  3 de 10 proyectos
+                </div>
+              </div>
+              <div style="color: lightgreen" class="mt-3">
+                <link rel="stylesheet" href="#" />Adquirir mas almacenamiento
+              </div>
+            </div>
+          </nav>
+        </aside>
+
+        <main class="main">
+          <div>
+            <div style="display: grid; justify-items: center">
+              <i class="fa-solid fa-folder"></i>
+            </div>
+            <span style="display: grid; align-items: center">Carpeta 1</span>
+          </div>
+
+          <div>
+            <div style="display: grid; justify-items: center">
+              <i class="fa-solid fa-folder"></i>
+            </div>
+            <span style="display: grid; align-items: center">Carpeta 2</span>
+          </div>
+
+          <div>
+            <div style="display: grid; justify-items: center">
+              <i class="fa-solid fa-folder"></i>
+            </div>
+            <span style="display: grid; align-items: center">Carpeta 3</span>
+          </div>
+
+          <div>
+            <div style="display: grid; justify-items: center">
+              <i class="fa-solid fa-folder"></i>
+            </div>
+            <span style="display: grid; align-items: center">Carpeta 4</span>
+          </div>
+
+          <div>
+            <div style="display: grid; justify-items: center">
+              <i class="fa-solid fa-folder"></i>
+            </div>
+            <span style="display: grid; align-items: center">Carpeta 5</span>
+          </div>
+
+          <div>
+            <div style="display: grid; justify-items: center">
+              <i class="fa-solid fa-folder"></i>
+            </div>
+            <span style="display: grid; align-items: center">Carpeta 6</span>
+          </div>
+        </main> -->
+      </div>
     </section>
 
     <section id ="login" class = "hide" style = "width: 100vw; height: 100vh;">
@@ -245,7 +477,71 @@
             <div>Guarda tus creaciones de forma segura, organiza tus proyectos y elige el plan que mejor se adapte a ti.</div>
         </div>
         <section id="seccion-planes">
-           
+            <!-- <div class="plan" id ="planFree">
+                <div class="section-top-plan">
+                    <i class="fa-solid fa-paper-plane"></i>
+                    <div class="nombre-plan">Free</div>
+                    <div class="costo-plan">
+                        <i class="fa-solid fa-dollar-sign"></i>
+                        <div>0</div>
+                        <div class="centavos-mes">
+                            <div>00</div>
+                            <div class="mes">mes</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="descripcion-plan">Empieza gratis y crea tus primeros proyectos.</div>
+                <div class="lista-plan">
+                    <div>✔ Editor de código en HTML, CSS y JavaScript</div>
+                    <div>✔ Colaboración en tiempo real</div>
+                    <div>✔ Hasta 10 proyectos guardados</div>
+                </div>
+                <a href="#" class="boton-elegir-plan">Elegir Plan</a>
+            </div>
+
+            <div class="plan" id="planPlus">
+                <div class="section-top-plan">
+                    <i class="fa-solid fa-plane"></i>
+                    <div class="nombre-plan">Plus</div>
+                    <div class="costo-plan">
+                        <i class="fa-solid fa-dollar-sign"></i>
+                        <div>30</div>
+                        <div class="centavos-mes">
+                            <div>00</div>
+                            <div class="mes">mes</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="descripcion-plan">Más espacio, más proyectos, más flexibilidad.</div>
+                <div class="lista-plan">
+                    <div>✔ Todo lo del plan Free</div>
+                    <div>✔ Hasta 50 proyectos guardados</div>
+                    <div>✔ Marca tus proyectos como favoritos</div>
+                </div>
+                <a href="#" class="boton-elegir-plan">Elegir Plan</a>
+            </div>
+
+            <div class="plan" >
+                <div class="section-top-plan">
+                <i class="fa-solid fa-shuttle-space"></i>
+                <div class="nombre-plan">Pro</div>
+                <div class="costo-plan">
+                    <i class="fa-solid fa-dollar-sign"></i>
+                    <div>50</div>
+                    <div class="centavos-mes">
+                        <div>00</div>
+                        <div class="mes">mes</div>
+                    </div>
+                </div>
+                </div>
+                <div class="descripcion-plan">Más espacio, más proyectos, más flexibilidad.</div>
+                <div class="lista-plan">
+                    <div>✔ Todo lo del plan Plus</div>
+                    <div>✔ Hasta 100 proyectos guardados</div>
+                    <div>✔ Soporte premium y atencion rapida.</div>
+                </div>
+                <a href="#" class="boton-elegir-plan">Elegir Plan</a>
+            </div> -->
         </section>
     </section>
 
@@ -302,6 +598,44 @@
             </div>
 
             <div id="formulario-registro-pago">
+                <!-- <div id="superior-formulario-pago">
+                    <div>
+                        <i class="fa-solid fa-lock"></i>
+                        Tu pago esta cifrado y es 100% seguro.
+                    </div>
+                    <a onclick = "showUserStorage()" href="#">
+                        <i class="fa-solid fa-xmark"></i>
+                    </a>
+                </div>
+                <div class="titulo">Regístrate</div>
+                <div id="preguntas-pago">
+                    <div>
+                      <input id="numero-de-tarjeta" type="text" class="registros-pago" placeholder="Numero de tarjeta"></input>
+                      <div id="numero-de-tarjeta-error" class="error-message hide"></div>
+                    </div>
+                    <div>
+                      <input id="nombre-titular" type="text" class="registros-pago" placeholder="Nombre del titular"></input>
+                      <div id="nombre-titular-error" class="error-message hide"></div>
+                    </div>
+                    <div id="fecha-cvv">
+                        <div>
+                          <input id="fecha-vencimiento" type="text" class="registros-pago" placeholder="Fecha de vencimiento"></input>
+                          <div id="fecha-vencimiento-error" class="error-message hide"></div>
+                        </div>
+                        <div>
+                          <input id="CVV" type="password" class="registros-pago" placeholder="CVV"></input>
+                          <div id="CVV-error" class="error-message hide"></div>
+                        </div>
+                    </div>
+                    <div>
+                      <input id="correo-pago" type="text" class="registros-pago" placeholder="Correo electronico"></input>
+                      <div id="correo-pago-error" class="error-message hide"></div>
+                    </div>
+                </div>
+                <div id="botones-pago">
+                    <a onclick="cancelPayment()" href="#" id="boton-cancelar">Cancelar</a>
+                    <a onclick="validateFormPayment(), changePlan()" href="#" id="boton-confirmar">Confirmar</a>
+                </div> -->
             </div>
         </div>
     </section>
@@ -328,7 +662,7 @@
                 <i class="fa-solid fa-right-from-bracket"></i>
                 <h2>Salir</h2>
               </button>
-              <button onclick="markShared()">
+              <button onclick="showModalShareProject()">
                 <i id= "sharedSpace" class="fa-solid fa-share"></i>
                 <h2>Compartir</h2>
               </button>

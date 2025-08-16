@@ -24,3 +24,9 @@ Planes y pagos:
 
 GET  htpp://localhost:3000/plans                X
 GET  http://localhost:3000/users/:id/plan
+
+
+COMPARTIR CON USUARIOS POR CORREO
+
+CUANDO BOTON COMPARTIR -> APARECE MODAL PARA INGRESAS CON QUIEN COMPARTIR
+EDNPOINT --  http://users/:id/projects/:projectId/sharewhith/:inputModal(correo);
