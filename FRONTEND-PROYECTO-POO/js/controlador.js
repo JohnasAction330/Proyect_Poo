@@ -1481,7 +1481,7 @@ function showModalRestore(){
 
 function showModalShareProject(){
   if(!currentProject.isShared){
-      const modalShareProject = document.getElementById("popup-modal-project");
+      const modalShareProject = document.getElementById("popup-share-project");
       modalShareProject.classList.remove("hidden");
       const overlay = document.getElementById("overlay2");
       overlay.classList.remove("hide");
@@ -1491,7 +1491,7 @@ function showModalShareProject(){
 }
 
 function closeModalShareProject(){
-    const modalShareProject = document.getElementById("popup-modal-project");
+    const modalShareProject = document.getElementById("popup-share-project");
     modalShareProject.classList.add("hidden");
     const overlay = document.getElementById("overlay2");
     overlay.classList.add("hide");
