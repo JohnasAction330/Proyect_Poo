@@ -1,0 +1,22 @@
+ENDPOINTS: 
+Usuarios (autenticación y gestión):
+
+POST http://localhost:3000/auth/login       X
+POST http://localhost:3000/auth/register    X
+GET  http://localhost:3000/users/:id        X       
+DELETE http://localhost:3000/users/:id      
+
+Categorias:
+
+GET http://localhost:3000/users/:id/categories  X
+
+Proyectos (carpetas, archivos, dashboard):
+
+GET  http://localhost:3000/users/:id/projects/:id   X
+GET  http://localhost:3000/users/:id/projects       X 
+PUT  http://localhost:3000/users/:id/projects/update/:id   X 
+DELETE http://localhost:3000/users/:id/projects/delete/:id 
+
+Planes y pagos:
+
+GET  http://localhost:3000/users/:id/plan
