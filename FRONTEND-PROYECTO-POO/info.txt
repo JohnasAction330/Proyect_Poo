@@ -1,0 +1,32 @@
+ENDPOINTS: 
+Usuarios (autenticación y gestión):
+
+GET  http://localhost:3000/auth/login           X
+POST  http://localhost:3000/auth/register       X
+GET  http://localhost:3000/users/               X
+GET  http://localhost:3000/users/:id
+PUT  http://localhost:3000/users/:id
+DELETE http://localhost:3000/users/:id
+
+Categorias:
+
+GET http://localhost:3000/categorias
+
+Proyectos (carpetas, archivos, dashboard):
+
+GET  http://localhost:3000/projects/
+GET  http://localhost:3000/projects/:id
+PUT  http://localhost:3000/projects/:id         X
+DELETE http://localhost:3000/projects/:id
+
+Planes y pagos:
+
+
+GET  htpp://localhost:3000/plans                X
+GET  http://localhost:3000/users/:id/plan
+
+
+COMPARTIR CON USUARIOS POR CORREO
+
+CUANDO BOTON COMPARTIR -> APARECE MODAL PARA INGRESAS CON QUIEN COMPARTIR
+EDNPOINT --  http://users/:id/projects/:projectId/sharewhith/:inputModal(correo);
